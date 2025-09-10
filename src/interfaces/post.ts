@@ -1,4 +1,4 @@
-import { type Author } from "./author";
+import { type Author } from './author';
 
 export type Post = {
   slug: string;
@@ -6,6 +6,7 @@ export type Post = {
   date: string;
   coverImage: string;
   author: Author;
+  category: string;
   excerpt: string;
   ogImage: {
     url: string;
