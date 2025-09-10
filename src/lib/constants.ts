@@ -1,4 +1,5 @@
-export const EXAMPLE_PATH = "blog-starter";
-export const CMS_NAME = "Markdown";
-export const HOME_OG_IMAGE_URL =
-  "https://og-image.vercel.app/Next.js%20Blog%20Starter%20Example.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg";
+export const HOME_OG_IMAGE_URL = '/public/assets/common/opengraph-image.png';
+export const DEFAULT_TITLE = "jngmnj's blog";
+export const DEFAULT_DESCRIPTION =
+  '프론트엔드 엔지니어 지정민의 개발 블로그입니다!';
+export const SITE_URL = 'https://jngmnj.github.io';
