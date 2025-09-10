@@ -1,13 +1,12 @@
+import Switcher from '@/app/_components/switcher';
 import { RiExternalLinkLine } from '@remixicon/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import Container from './container';
-import Switcher from './switcher';
 
 const Header = () => {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-slate-200 bg-white py-4 dark:border-gray-900 dark:bg-black">
-      <Container>
+      <div className="container mx-auto px-5">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-8">
             <div className="dark:brightness-0 dark:invert">
@@ -35,7 +34,7 @@ const Header = () => {
                 </li>
                 <li>
                   <Link
-                    href="/posts"
+                    href="/categories"
                     className="font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200"
                   >
                     Blog
@@ -46,7 +45,7 @@ const Header = () => {
           </div>
           <Switcher />
         </div>
-      </Container>
+      </div>
     </header>
   );
 };
