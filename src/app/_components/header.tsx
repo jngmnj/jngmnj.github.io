@@ -2,7 +2,7 @@ import { RiExternalLinkLine } from '@remixicon/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Container from './container';
-import { ThemeSwitcher } from './theme-switcher';
+import Switcher from './switcher';
 
 const Header = () => {
   return (
@@ -35,7 +35,7 @@ const Header = () => {
                 </li>
                 <li>
                   <Link
-                    href="/blog"
+                    href="/posts"
                     className="font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200"
                   >
                     Blog
@@ -44,7 +44,7 @@ const Header = () => {
               </ul>
             </nav>
           </div>
-          <ThemeSwitcher />
+          <Switcher />
         </div>
       </Container>
     </header>
