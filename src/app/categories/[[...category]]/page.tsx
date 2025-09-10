@@ -5,23 +5,21 @@ import { getAllCategories, getAllPosts } from '@/lib/api';
 import { DEFAULT_TITLE, HOME_OG_IMAGE_URL, SITE_URL } from '@/lib/constants';
 import { Metadata } from 'next';
 
-type Props = {
-  params: { category?: string[] };
-};
-
-export default async function PostsPage({ params }: Props) {
-  const category = params.category?.[0];
-
+export default async function PostsPage(
+  props: PageProps<'/categories/[[...category]]'>
+) {
+  const { category } = await props.params; // params는 Promise라서 await 필요
+  const selectedCategory = category?.[0];
   const allPosts = getAllPosts();
 
-  const categoryPosts = category
-    ? allPosts.filter((post) => post.category === category)
+  const categoryPosts = selectedCategory
+    ? allPosts.filter((post) => post.category === selectedCategory)
     : allPosts;
 
   return (
     <main>
       <Container>
-        <Categories category={category} />
+        <Categories category={selectedCategory} />
         <section className="mb-32">
           <h1 className="mb-8 text-3xl font-bold">
             {category ? (
