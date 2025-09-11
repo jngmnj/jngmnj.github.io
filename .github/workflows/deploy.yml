@@ -19,7 +19,6 @@ jobs:
 
       - run: rm -rf node_modules .next .out
       - run: npm ci
-      - run: npm rebuild lightningcss --update-binary
       - run: npm run build # /out 폴더 생성됨
 
       - name: Deploy to GitHub Pages
