@@ -1,5 +1,6 @@
 import Categories from '@/app/_components/categories';
 import Container from '@/app/_components/container';
+import { Pagination } from '@/app/_components/pagination';
 import { PostList } from '@/app/_components/post-list';
 import { getAllCategories, getAllPosts } from '@/lib/api';
 import { DEFAULT_TITLE, HOME_OG_IMAGE_URL, SITE_URL } from '@/lib/constants';
@@ -28,6 +29,7 @@ export default async function PostsPage(
   // 페이지네이션
   const start = (page - 1) * POSTS_PER_PAGE;
   const paginatedPosts = filteredPosts.slice(start, start + POSTS_PER_PAGE);
+  const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE);
 
   if (paginatedPosts.length === 0) {
     return notFound();
@@ -39,7 +41,15 @@ export default async function PostsPage(
         <Categories category={category} />
         <section className="mb-32">
           {paginatedPosts.length > 0 ? (
-            <PostList posts={paginatedPosts} />
+            <>
+              <PostList posts={paginatedPosts} />
+              {/* pagenation UI */}
+              <Pagination
+                currentPage={page}
+                totalPages={totalPages}
+                category={category}
+              />
+            </>
           ) : (
             <p>No posts found.</p>
           )}
