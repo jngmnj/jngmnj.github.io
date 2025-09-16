@@ -11,7 +11,7 @@ type Props = {
 export function HeroPost({ title, coverImage, excerpt, slug }: Props) {
   return (
     <section>
-      <Link href={`/posts/${encodeURIComponent(slug)}`} className="group">
+      <Link href={`/blog/${encodeURIComponent(slug)}`} className="group">
         <div className="relative mb-8 h-80 overflow-hidden rounded-2xl sm:h-96 md:mb-16 lg:h-112 xl:h-128">
           <CoverImage title={title} src={coverImage} isThumbnail />
           <div className="group-hover:from:30% absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/70 from-0% via-black/20 via-20% to-transparent to-60% px-6 py-8 text-white group-hover:via-50% group-hover:to-80%">

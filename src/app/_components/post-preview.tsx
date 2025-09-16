@@ -16,7 +16,7 @@ export function PostPreview({ title, coverImage, date, excerpt, slug }: Props) {
   return (
     <div>
       <Link
-        href={`/posts/${encodeURIComponent(slug)}`}
+        href={`/blog/${encodeURIComponent(slug)}`}
         className="group flex items-start gap-8"
       >
         <div>
@@ -31,7 +31,7 @@ export function PostPreview({ title, coverImage, date, excerpt, slug }: Props) {
           </div>
         </div>
 
-        {coverImage ?  (
+        {coverImage ? (
           <div className="aspect-[4/3] w-32 flex-shrink-0 overflow-hidden rounded-lg bg-gray-100 md:ml-8 md:w-64 lg:ml-16">
             <Image
               src={coverImage}
@@ -41,7 +41,7 @@ export function PostPreview({ title, coverImage, date, excerpt, slug }: Props) {
               height={630}
             />
           </div>
-        ): null}
+        ) : null}
       </Link>
     </div>
   );

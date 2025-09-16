@@ -82,7 +82,8 @@ export async function generateMetadata({
 }: {
   params: { slug?: string[] };
 }): Promise<Metadata> {
-  const slugArray = params.slug || [];
+  const { slug } = await params;
+  const slugArray = slug || [];
   const category = slugArray[0];
   const page = parseInt(slugArray[1] || '1', 10);
 
