@@ -9,11 +9,13 @@ import { notFound } from 'next/navigation';
 
 const POSTS_PER_PAGE = 5;
 
-export default async function PostsPage(
-  props: PageProps<'/blog/category/[[...slug]]'>
-) {
+export default async function PostsPage({
+  params,
+}: {
+  params: Promise<{ slug?: string[] }>;
+}) {
   // slug가 없는 경우도 [] 반환
-  const { slug } = await props.params;
+  const { slug } = await params;
   const slugArray = slug || [];
   const isPageNumber = slugArray.length === 1 && /^\d+$/.test(slugArray[0]);
   const category = !isPageNumber ? slugArray[0] : undefined;
@@ -62,13 +64,11 @@ export default async function PostsPage(
 export async function generateStaticParams() {
   const categories = getAllCategories();
   const allPosts = getAllPosts();
-
   const params: { slug: string[] }[] = [];
 
-  // 기본 페이지
   params.push({ slug: [] });
 
-  // 페이지네이션 숫자 (예시: 최대 5페이지만 미리 생성)
+  // 페이지네이션
   const maxPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
   for (let i = 2; i <= maxPages; i++) {
     params.push({ slug: [String(i)] });
@@ -90,7 +90,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug?: string[] };
+  params: Promise<{ slug?: string[] }>;
 }): Promise<Metadata> {
   const { slug } = await params;
   const slugArray = slug || [];
