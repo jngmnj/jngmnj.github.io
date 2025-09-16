@@ -21,13 +21,6 @@ export default async function PostsPage(
       <Container>
         <Categories category={selectedCategory} />
         <section className="mb-32">
-          <h1 className="mb-8 text-3xl font-bold">
-            {category ? (
-              <span>Posts in “{category}”</span>
-            ) : (
-              <span>All Posts</span>
-            )}
-          </h1>
           {categoryPosts.length > 0 ? (
             <PostList posts={categoryPosts} />
           ) : (
