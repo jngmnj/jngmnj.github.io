@@ -1,23 +1,26 @@
-import cn from "classnames";
-import Link from "next/link";
-import Image from "next/image";
+'use client';
+import { handleImageError } from '@/lib/handleImageError';
+import cn from 'classnames';
+import Image from 'next/image';
+import Link from 'next/link';
 
 type Props = {
   title: string;
-  src: string;
+  src?: string;
   slug?: string;
 };
 
 const CoverImage = ({ title, src, slug }: Props) => {
   const image = (
     <Image
-      src={src}
+      src={src || '/images/cover.png'}
       alt={`Cover Image for ${title}`}
-      className={cn("shadow-sm w-full", {
-        "hover:shadow-lg transition-shadow duration-200": slug,
+      className={cn('w-full', {
+        'duration-200 hover:scale-125 hover:transition-transform': slug,
       })}
       width={1300}
       height={630}
+      onError={handleImageError}
     />
   );
   return (
