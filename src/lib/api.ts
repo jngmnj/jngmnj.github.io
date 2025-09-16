@@ -6,16 +6,22 @@ import { join } from 'path';
 const postsDirectory = join(process.cwd(), '_posts');
 
 export function getPostSlugs() {
-  return fs.readdirSync(postsDirectory);
+  return fs.readdirSync(postsDirectory).filter((file) => file.endsWith('.md'));
 }
 
 export function getPostBySlug(slug: string) {
   const realSlug = slug.replace(/\.md$/, '');
-  const fullPath = join(postsDirectory, `${realSlug}.md`);
+  const decodedSlug = decodeURIComponent(realSlug);
+  const fullPath = join(postsDirectory, `${decodedSlug}.md`);
+
+  if (!fs.existsSync(fullPath)) {
+    throw new Error(`❌ Post not found: ${decodedSlug}.md`);
+  }
+
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
 
-  return { ...data, slug: realSlug, content } as Post;
+  return { ...data, slug: decodedSlug, content } as Post;
 }
 
 export function getAllPosts(): Post[] {

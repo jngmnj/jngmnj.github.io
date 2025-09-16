@@ -34,7 +34,7 @@ const Header = () => {
                 </li>
                 <li>
                   <Link
-                    href="/categories"
+                    href="/blog/category"
                     className="font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200"
                   >
                     Blog

@@ -5,14 +5,10 @@ import {
   HOME_OG_IMAGE_URL,
   SITE_URL,
 } from '@/lib/constants';
-import cn from 'classnames';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 
 import Header from './_components/header';
 import './globals.css';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -55,6 +51,10 @@ export default function RootLayout({
           color="#000000"
         />
         <link rel="shortcut icon" href="/favicon/favicon.ico" />
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/poposnail61/min-sans@main/web/css/minsansvf-dynamic-subset.css"
+        />
         <meta name="msapplication-TileColor" content="#000000" />
         <meta
           name="msapplication-config"
@@ -63,7 +63,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#000" />
         <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       </head>
-      <body className={cn(inter.className, 'dark:bg-black dark:text-white')}>
+      <body className="dark:bg-black dark:text-white">
         <Header />
         <div className="min-h-screen">{children}</div>
         <Footer />

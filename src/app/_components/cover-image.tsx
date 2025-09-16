@@ -1,35 +1,27 @@
-import cn from "classnames";
-import Link from "next/link";
-import Image from "next/image";
+'use client';
+import { handleImageError } from '@/lib/handleImageError';
+import cn from 'classnames';
+import Image from 'next/image';
 
 type Props = {
   title: string;
   src: string;
-  slug?: string;
+  isThumbnail?: boolean;
 };
 
-const CoverImage = ({ title, src, slug }: Props) => {
-  const image = (
+const CoverImage = ({ title, src, isThumbnail }: Props) => {
+  return (
     <Image
-      src={src}
+      src={src || '/assets/common/img_default-cover.png'}
       alt={`Cover Image for ${title}`}
-      className={cn("shadow-sm w-full", {
-        "hover:shadow-lg transition-shadow duration-200": slug,
+      className={cn('w-full', {
+        'h-full object-cover duration-200 group-hover:scale-105 group-hover:transition-transform':
+          isThumbnail,
       })}
       width={1300}
       height={630}
+      onError={handleImageError}
     />
-  );
-  return (
-    <div className="sm:mx-0">
-      {slug ? (
-        <Link href={`/posts/${slug}`} aria-label={title}>
-          {image}
-        </Link>
-      ) : (
-        image
-      )}
-    </div>
   );
 };
 

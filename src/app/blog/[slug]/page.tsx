@@ -49,13 +49,16 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
   }
 
   const title = `${post.title} | ${DEFAULT_TITLE}`;
-
+  const ogImage =
+    post.ogImage?.url ||
+    post.coverImage ||
+    '/assets/common/opengraph-image.png';
   return {
     metadataBase: new URL(SITE_URL),
     title,
     openGraph: {
       title,
-      images: [post.ogImage.url],
+      images: [ogImage],
     },
   };
 }
@@ -64,6 +67,6 @@ export async function generateStaticParams() {
   const posts = getAllPosts();
 
   return posts.map((post) => ({
-    slug: post.slug,
+    slug: encodeURIComponent(post.slug.replace(/\.md$/, '')),
   }));
 }
