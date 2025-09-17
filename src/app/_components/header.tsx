@@ -20,7 +20,7 @@ const Header = () => {
                 />
               </Link>
             </div>
-            <nav className="hidden md:block" aria-label="Main navigation">
+            <nav className="block" aria-label="Main navigation">
               <ul className="flex items-center space-x-3 md:space-x-5">
                 <li>
                   <Link
