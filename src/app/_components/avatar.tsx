@@ -1,13 +1,14 @@
-type Props = {
-  name: string;
-  picture: string;
-};
+import { DEFAULT_NAME, DEFAULT_PICTURE } from '@/lib/constants';
 
-const Avatar = ({ name, picture }: Props) => {
+const Avatar = () => {
   return (
-    <div className="flex items-center">
-      <img src={picture} className="w-12 h-12 rounded-full mr-4" alt={name} />
-      <div className="text-xl font-bold">{name}</div>
+    <div className="flex items-center gap-4">
+      <img
+        src={DEFAULT_PICTURE}
+        className="h-10 w-10 rounded-full"
+        alt={DEFAULT_NAME}
+      />
+      <div className="font-semibold text-gray-600">{DEFAULT_NAME}</div>
     </div>
   );
 };

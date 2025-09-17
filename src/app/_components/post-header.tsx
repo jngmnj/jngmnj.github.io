@@ -1,34 +1,45 @@
-import Avatar from "./avatar";
-import CoverImage from "./cover-image";
-import DateFormatter from "./date-formatter";
-import { PostTitle } from "@/app/_components/post-title";
-import { type Author } from "@/interfaces/author";
+import { PostTitle } from '@/app/_components/post-title';
+import { RiArrowRightSLine } from '@remixicon/react';
+import Link from 'next/link';
+import Avatar from './avatar';
+import CoverImage from './cover-image';
+import DateFormatter from './date-formatter';
 
 type Props = {
   title: string;
-  coverImage: string;
+  coverImage?: string;
   date: string;
-  author: Author;
+  category: string;
 };
 
-export function PostHeader({ title, coverImage, date, author }: Props) {
+export function PostHeader({ title, coverImage, date, category }: Props) {
   return (
-    <>
+    <div className="pt-10">
+      <div className="mb-4 flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400">
+        <Link
+          href="/blog"
+          className="p-1 hover:text-gray-900 hover:underline dark:hover:text-gray-200"
+        >
+          Blog
+        </Link>
+        <RiArrowRightSLine className="size-4" />
+        <Link
+          href={`/blog/category/${category}`}
+          className="p-1 hover:text-gray-900 hover:underline dark:hover:text-gray-200"
+        >
+          {category}
+        </Link>
+      </div>
       <PostTitle>{title}</PostTitle>
-      <div className="hidden md:block md:mb-12">
-        <Avatar name={author.name} picture={author.picture} />
-      </div>
-      <div className="mb-8 md:mb-16 sm:mx-0">
-        <CoverImage title={title} src={coverImage} />
-      </div>
-      <div className="max-w-2xl mx-auto">
-        <div className="block md:hidden mb-6">
-          <Avatar name={author.name} picture={author.picture} />
-        </div>
-        <div className="mb-6 text-lg">
+      <div className="mb-8 flex flex-col gap-3">
+        <Avatar />
+        <p className="text-sm text-gray-400 dark:text-gray-600">
           <DateFormatter dateString={date} />
-        </div>
+        </p>
       </div>
-    </>
+      <div className="mb-8 sm:mx-0 md:mb-16">
+        {coverImage && <CoverImage title={title} src={coverImage} />}
+      </div>
+    </div>
   );
 }

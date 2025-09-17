@@ -20,12 +20,12 @@ export default async function Post(props: Params) {
   return (
     <main>
       <Container>
-        <article className="mb-32">
+        <article>
           <PostHeader
             title={post.title}
             coverImage={post.coverImage}
             date={post.date}
-            author={post.author}
+            category={post.category}
           />
           <PostBody content={content} />
         </article>
