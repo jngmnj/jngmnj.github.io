@@ -43,5 +43,5 @@ body {
 }
 
 html {
-  @apply text-base text-gray-800;
+  @apply scroll-smooth text-base text-gray-800;
 }
