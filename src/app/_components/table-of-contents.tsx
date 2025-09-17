@@ -12,11 +12,11 @@ export function TableOfContents({ toc }: { toc: TocItem[] }) {
       if (!tocElement) return;
 
       if (window.scrollY > 200) {
-        tocElement.classList.add('fixed');
-        tocElement.classList.remove('absolute');
+        tocElement.classList.add('fixed', 'top-60');
+        tocElement.classList.remove('absolute', 'top-0');
       } else {
-        tocElement.classList.remove('fixed');
-        tocElement.classList.add('absolute');
+        tocElement.classList.remove('fixed', 'top-60');
+        tocElement.classList.add('absolute', 'top-0');
       }
     };
 
@@ -54,7 +54,7 @@ export function TableOfContents({ toc }: { toc: TocItem[] }) {
 
   return (
     <nav
-      className="absolute top-20 left-1/2 col-span-1 hidden w-60 translate-x-[23rem] border bg-white p-4 text-sm lg:block dark:bg-black"
+      className="absolute top-0 left-1/2 col-span-1 hidden w-60 translate-x-[23rem] bg-white text-sm lg:block dark:bg-black"
       id="table-of-contents"
     >
       <ul className="space-y-1">
@@ -71,10 +71,10 @@ export function TableOfContents({ toc }: { toc: TocItem[] }) {
               <a
                 href={`#${item.id}`}
                 className={cn(
-                  'hover:text-blue-600',
+                  'hover:text-primary-500 before:bg-primary-500 relative before:absolute before:-left-2 before:h-full before:w-1 before:opacity-0 before:transition-all before:content-[""] hover:before:opacity-100',
                   activeId === item.id
-                    ? 'font-semibold text-blue-600'
-                    : 'text-gray-600'
+                    ? 'font-semibold text-gray-700 before:opacity-100 dark:text-gray-200'
+                    : 'text-gray-500'
                 )}
               >
                 {item.text}
