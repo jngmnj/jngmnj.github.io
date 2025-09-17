@@ -7,26 +7,6 @@ export function TableOfContents({ toc }: { toc: TocItem[] }) {
   const [activeId, setActiveId] = useState<string | null>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const tocElement = document.getElementById('table-of-contents');
-      if (!tocElement) return;
-
-      if (window.scrollY > 200) {
-        tocElement.classList.add('fixed', 'top-60');
-        tocElement.classList.remove('absolute', 'top-0');
-      } else {
-        tocElement.classList.remove('fixed', 'top-60');
-        tocElement.classList.add('absolute', 'top-0');
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  useEffect(() => {
     const headings = toc
       .map((item) => document.getElementById(item.id))
       .filter((el): el is HTMLElement => el !== null);
@@ -54,7 +34,7 @@ export function TableOfContents({ toc }: { toc: TocItem[] }) {
 
   return (
     <nav
-      className="absolute top-0 left-1/2 col-span-1 hidden w-60 translate-x-[23rem] bg-white text-sm lg:block dark:bg-black"
+      className="sticky top-100 col-span-1 hidden w-60 text-sm lg:block dark:bg-black"
       id="table-of-contents"
     >
       <ul className="space-y-1">
@@ -74,7 +54,7 @@ export function TableOfContents({ toc }: { toc: TocItem[] }) {
                   'hover:text-primary-500 before:bg-primary-500 relative before:absolute before:-left-2 before:h-full before:w-1 before:opacity-0 before:transition-all before:content-[""] hover:before:opacity-100',
                   activeId === item.id
                     ? 'font-semibold text-gray-700 before:opacity-100 dark:text-gray-200'
-                    : 'text-gray-500'
+                    : 'text-gray-500 dark:text-gray-400'
                 )}
               >
                 {item.text}
