@@ -18,6 +18,21 @@ code span {
   color: var(--shiki-dark);
 }
 
+/* inline code */
+.markdown :not(pre) > code::before,
+.markdown :not(pre) > code::after {
+  display: none;
+}
+
+.markdown :not(pre) > code {
+  @apply rounded-sm px-1 py-0.5 text-sm;
+  background-color: var(--shiki-light-bg);
+}
+
+.dark .markdown :not(pre) > code {
+  background-color: var(--shiki-dark-bg);
+}
+/* code block */
 figure pre {
   background-color: var(--shiki-light-bg);
   padding: 0.5rem 1rem;

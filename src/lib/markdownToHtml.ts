@@ -26,6 +26,12 @@ const options: Options = {
       `char--highlighted ${id ?? ''}`
     );
   },
+
+  bypassInlineCode: false,
+  defaultLang: {
+    block: 'javascript',
+    inline: 'plaintext',
+  },
 };
 
 export default async function markdownToHtml(markdown: string) {
