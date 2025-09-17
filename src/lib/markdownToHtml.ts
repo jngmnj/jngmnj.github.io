@@ -1,8 +1,9 @@
 import rehypePrettyCode, { type Options } from 'rehype-pretty-code';
 import rehypeStringify from 'rehype-stringify';
-import { remark } from 'remark';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
+import { unified } from 'unified';
+import { visit } from 'unist-util-visit';
 
 const options: Options = {
   // 라이트/다크 모드 모두 지정
@@ -34,13 +35,49 @@ const options: Options = {
   },
 };
 
+export type TocItem = {
+  id: string;
+  text: string;
+  level: number;
+};
+
+function extractText(node: any): string {
+  if (!node) return '';
+  if (node.type === 'text') return node.value;
+  if (node.children) return node.children.map(extractText).join('');
+  return '';
+}
+
 export default async function markdownToHtml(markdown: string) {
-  const result = await remark()
+  const toc: TocItem[] = [];
+
+  const processor = unified()
+    .use(remarkParse)
+    .use(() => (tree: any) => {
+      visit(tree, 'heading', (node: any) => {
+        const text = extractText(node).trim();
+
+        if (!text) return;
+
+        const id = text
+          .trim()
+          .toLowerCase()
+          .replace(/\s+/g, '-')
+          .replace(/[!@#$%^&*(),.?":{}|<>]/g, '');
+
+        toc.push({ id, text, level: node.depth });
+
+        node.data = {
+          hProperties: { id },
+        };
+      });
+    })
     .use(remarkParse)
     .use(remarkRehype)
     .use(rehypePrettyCode, options)
-    .use(rehypeStringify)
-    .process(markdown);
+    .use(rehypeStringify);
 
-  return result.toString();
+  const html = String(await processor.process(markdown));
+
+  return { html, toc };
 }
