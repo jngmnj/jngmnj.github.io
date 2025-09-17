@@ -15,7 +15,7 @@ export default async function Post(props: Params) {
     return notFound();
   }
 
-  const content = await markdownToHtml(post.content || '');
+  const { html, toc } = await markdownToHtml(post.content || '');
 
   return (
     <main>
@@ -27,7 +27,7 @@ export default async function Post(props: Params) {
             date={post.date}
             category={post.category}
           />
-          <PostBody content={content} />
+          <PostBody content={html} toc={toc} />
         </article>
       </Container>
     </main>
