@@ -25,12 +25,11 @@ code span {
 }
 
 .markdown :not(pre) > code {
-  @apply rounded-sm px-1 py-0.5 text-sm;
-  background-color: var(--shiki-light-bg);
+  @apply rounded-sm bg-[#f0eded] px-1 py-0.5 text-sm;
 }
 
 .dark .markdown :not(pre) > code {
-  background-color: var(--shiki-dark-bg);
+  @apply bg-[#2b3039];
 }
 /* code block */
 figure pre {
