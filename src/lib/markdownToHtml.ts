@@ -64,7 +64,8 @@ export default async function markdownToHtml(markdown: string) {
           .trim()
           .toLowerCase()
           .replace(/\s+/g, '-')
-          .replace(/[!@#$%^&*(),.?":{}|<>]/g, '');
+          .replace(/[!@#$%^&*(),.?":{}|<>]/g, '')
+          .concat('-' + Math.random().toString(36).substring(2, 5));
 
         toc.push({ id, text, level: node.depth });
 
