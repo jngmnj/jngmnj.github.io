@@ -25,7 +25,7 @@ code span {
 }
 
 .markdown :not(pre) > code {
-  @apply rounded-sm bg-[#f0eded] px-1 py-0.5 text-sm;
+  @apply rounded-sm bg-[#f0eded] px-1 py-0.5 text-sm font-normal;
 }
 
 .dark .markdown :not(pre) > code {
@@ -90,4 +90,8 @@ code[data-line-numbers-max-digits='3'] > [data-line]::before {
 
 code[data-line-numbers-max-digits='4'] > [data-line]::before {
   width: 2.25rem;
+}
+
+.prose {
+  @apply dark:prose-invert;
 }
