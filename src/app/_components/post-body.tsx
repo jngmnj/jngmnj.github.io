@@ -10,10 +10,10 @@ type Props = {
 export function PostBody({ content, toc }: Props) {
   return (
     <div className="relative">
-      <div className="absolute right-0 hidden h-full lg:block">
+      <div className="absolute left-[calc(50%+23em)] hidden h-full lg:block">
         <TableOfContents toc={toc} />
       </div>
-      <div className="markdown mx-auto max-w-2xl">
+      <div className="markdown prose mx-auto max-w-2xl">
         <div
           className={markdownStyles['markdown']}
           dangerouslySetInnerHTML={{ __html: content }}

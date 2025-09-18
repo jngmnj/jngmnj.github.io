@@ -34,7 +34,7 @@ export function TableOfContents({ toc }: { toc: TocItem[] }) {
 
   return (
     <nav
-      className="sticky top-100 col-span-1 hidden w-60 text-sm lg:block dark:bg-black"
+      className="sticky top-25 col-span-1 hidden w-60 text-sm lg:block dark:bg-black"
       id="table-of-contents"
     >
       <ul className="space-y-1">
