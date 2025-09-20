@@ -2,6 +2,7 @@ import Switcher from '@/app/_components/switcher';
 import { RiExternalLinkLine } from '@remixicon/react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Search from './search';
 
 const Header = () => {
   return (
@@ -43,7 +44,11 @@ const Header = () => {
               </ul>
             </nav>
           </div>
-          <Switcher />
+
+          <div className="flex items-center gap-4">
+            <Search />
+            <Switcher />
+          </div>
         </div>
       </div>
     </header>
