@@ -1,3 +1,4 @@
+import { transformerCopyButton } from '@rehype-pretty/transformers';
 import rehypePrettyCode, { type Options } from 'rehype-pretty-code';
 import rehypeStringify from 'rehype-stringify';
 import remarkGfm from 'remark-gfm';
@@ -90,6 +91,12 @@ const options: Options = {
     block: 'javascript',
     inline: 'plaintext',
   },
+  transformers: [
+    transformerCopyButton({
+      visibility: 'hover',
+      feedbackDuration: 2000,
+    }),
+  ],
 };
 
 export type TocItem = {
