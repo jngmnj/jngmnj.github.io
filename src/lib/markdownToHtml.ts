@@ -6,6 +6,62 @@ import remarkRehype from 'remark-rehype';
 import { unified } from 'unified';
 import { visit } from 'unist-util-visit';
 
+// 커스텀 플러그인: 괄호가 포함된 굵은 글씨 처리
+function remarkBoldWithParentheses() {
+  return (tree: any) => {
+    visit(tree, 'text', (node: any, index: number | undefined, parent: any) => {
+      if (!node.value || index === undefined) return;
+
+      // **text(inside)** 패턴을 찾아서 처리
+      const boldWithParensRegex = /\*\*([^*]+\([^)]*\)[^*]*)\*\*/g;
+      const matches = [...node.value.matchAll(boldWithParensRegex)];
+
+      if (matches.length > 0) {
+        const children: any[] = [];
+        let lastIndex = 0;
+
+        matches.forEach((match) => {
+          const fullMatch = match[0];
+          const content = match[1];
+          const matchIndex = match.index!;
+
+          // 매치 이전의 텍스트 추가
+          if (matchIndex > lastIndex) {
+            children.push({
+              type: 'text',
+              value: node.value.slice(lastIndex, matchIndex),
+            });
+          }
+
+          // 굵은 글씨 노드 추가
+          children.push({
+            type: 'strong',
+            children: [
+              {
+                type: 'text',
+                value: content,
+              },
+            ],
+          });
+
+          lastIndex = matchIndex + fullMatch.length;
+        });
+
+        // 마지막 매치 이후의 텍스트 추가
+        if (lastIndex < node.value.length) {
+          children.push({
+            type: 'text',
+            value: node.value.slice(lastIndex),
+          });
+        }
+
+        // 부모 노드의 children 배열을 업데이트
+        parent.children.splice(index, 1, ...children);
+      }
+    });
+  };
+}
+
 const options: Options = {
   // 라이트/다크 모드 모두 지정
   theme: {
@@ -74,7 +130,7 @@ export default async function markdownToHtml(markdown: string) {
         };
       });
     })
-    .use(remarkParse)
+    .use(remarkBoldWithParentheses)
     .use(remarkRehype)
     .use(rehypePrettyCode, options)
     .use(remarkGfm)
