@@ -46,3 +46,8 @@ body {
 html {
   @apply scroll-smooth text-base text-gray-800;
 }
+
+/* 코드 블록 복사 버튼 스타일 */
+button.rehype-pretty-copy {
+  @apply cursor-pointer;
+}
