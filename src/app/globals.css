@@ -51,3 +51,35 @@ html {
 button.rehype-pretty-copy {
   @apply cursor-pointer;
 }
+
+/* 컨테이너 스타일 - 최대 너비 1280px로 제한 */
+.container {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+  .container.narrow {
+    max-width: 1024px;
+  }
+}

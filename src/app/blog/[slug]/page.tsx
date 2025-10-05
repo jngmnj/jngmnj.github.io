@@ -1,4 +1,3 @@
-import Container from '@/app/_components/container';
 import { PostBody } from '@/app/_components/post-body';
 import { PostHeader } from '@/app/_components/post-header';
 import { getAllPosts, getPostBySlug } from '@/lib/api';
@@ -19,7 +18,7 @@ export default async function Post(props: Params) {
 
   return (
     <main>
-      <Container>
+      <div className="mx-auto max-w-3xl px-5 pt-18 pb-32">
         <article>
           <PostHeader
             title={post.title}
@@ -29,7 +28,7 @@ export default async function Post(props: Params) {
           />
           <PostBody content={html} toc={toc} />
         </article>
-      </Container>
+      </div>
     </main>
   );
 }

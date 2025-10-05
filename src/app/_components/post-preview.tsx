@@ -1,6 +1,6 @@
 import { type Author } from '@/interfaces/author';
-import Image from 'next/image';
 import Link from 'next/link';
+import CoverImage from './cover-image';
 import DateFormatter from './date-formatter';
 
 type Props = {
@@ -17,7 +17,7 @@ export function PostPreview({ title, coverImage, date, excerpt, slug }: Props) {
     <div>
       <Link
         href={`/blog/${encodeURIComponent(slug)}`}
-        className="group flex items-start gap-8"
+        className="group flex items-start justify-between gap-8"
       >
         <div>
           <h3 className="group-hover:text-primary-500 mb-3 text-xl leading-snug transition-all md:text-2xl">
@@ -33,13 +33,7 @@ export function PostPreview({ title, coverImage, date, excerpt, slug }: Props) {
 
         {coverImage ? (
           <div className="aspect-[4/3] w-32 flex-shrink-0 overflow-hidden rounded-lg bg-gray-100 md:ml-8 md:w-64 lg:ml-16">
-            <Image
-              src={coverImage}
-              alt={`Cover Image for ${title}`}
-              className="h-full w-full object-cover duration-200 group-hover:scale-105 group-hover:transition-transform"
-              width={1300}
-              height={630}
-            />
+            <CoverImage title={title} src={coverImage} isThumbnail />
           </div>
         ) : null}
       </Link>
