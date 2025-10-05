@@ -96,6 +96,10 @@ code[data-line-numbers-max-digits='4'] > [data-line]::before {
   @apply dark:prose-invert;
 }
 
+.prose img {
+  border-radius: 1rem;
+}
+
 .markdown table {
   width: 100%;
   border-collapse: separate;
