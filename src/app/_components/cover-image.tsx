@@ -14,10 +14,12 @@ const CoverImage = ({ title, src, isThumbnail }: Props) => {
     <Image
       src={src || '/assets/common/img_default-cover.png'}
       alt={`Cover Image for ${title}`}
-      className={cn('w-full', {
-        'h-full object-cover duration-200 group-hover:scale-105 group-hover:transition-transform':
-          isThumbnail,
-      })}
+      className={cn(
+        'w-full',
+        isThumbnail
+          ? 'h-full object-cover duration-200 group-hover:scale-105 group-hover:transition-transform'
+          : 'mx-auto max-w-2xl'
+      )}
       width={1300}
       height={630}
       onError={handleImageError}
