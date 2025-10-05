@@ -11,7 +11,7 @@ export default function Index() {
   const morePosts = allPosts.slice(1, 4);
   return (
     <main>
-      <Container>
+      <Container narrow>
         <HeroPost
           title={heroPost.title}
           coverImage={heroPost.coverImage}

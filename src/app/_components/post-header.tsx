@@ -14,7 +14,7 @@ type Props = {
 
 export function PostHeader({ title, coverImage, date, category }: Props) {
   return (
-    <div className="pt-10">
+    <>
       <div className="mb-4 flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400">
         <Link
           href="/blog"
@@ -40,6 +40,6 @@ export function PostHeader({ title, coverImage, date, category }: Props) {
       <div className="mb-8 sm:mx-0 md:mb-16">
         {coverImage && <CoverImage title={title} src={coverImage} />}
       </div>
-    </div>
+    </>
   );
 }

@@ -39,7 +39,7 @@ export default async function PostsPage({
 
   return (
     <main>
-      <Container>
+      <Container narrow>
         <Categories category={category} />
         <section className="mb-32">
           {paginatedPosts.length > 0 ? (
