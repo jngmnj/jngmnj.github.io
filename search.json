@@ -10,5 +10,11 @@
     "slug": "typography-component-vs-class",
     "excerpt": "프로젝트를 하다 보면 텍스트 스타일을 어떻게 관리할지가 늘 고민거리입니다. Tailwind를 쓰면 text-lg, text-xl 같은 유틸리티 클래스 덕분에 빠르게 작업할 수 있지만, 서비스가 커지면 일관성을 유지하기 어려워집니다.",
     "category": "develop"
+  },
+  {
+    "title": "Next.js 렌더링 방식 완전 정리: SSG, SSR, ISR, Streaming",
+    "slug": "nextjs-rendering-methods",
+    "excerpt": "Page Router부터 App Router까지, Next.js의 렌더링 방식(SSG, SSR, ISR, Streaming)을 흐름으로 정리하고 언제 어떤 방식을 쓰면 좋을지 정리해봅니다.",
+    "category": "develop"
   }
 ]
