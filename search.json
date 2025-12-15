@@ -1,11 +1,5 @@
 [
   {
-    "title": "Next.js 렌더링 방식 완전 정리: SSG, SSR, ISR, Streaming",
-    "slug": "nextjs-rendering-methods",
-    "excerpt": "Page Router부터 App Router까지, Next.js의 렌더링 방식(SSG, SSR, ISR, Streaming)을 흐름으로 정리하고 언제 어떤 방식을 쓰면 좋을지 정리해봅니다.",
-    "category": "develop"
-  },
-  {
     "title": "디자인 시스템 준수를 시도하며 배운 점",
     "slug": "boardque-design-system",
     "excerpt": "프로젝트를 진행하면서 팀원마다 버튼 스타일, 폰트 크기, 라운드 값이 조금씩 달라지는 걸 보았습니다. 화면마다 미묘하게 다른 UI는 사용자 경험에도 영향을 주고, 코드 관리에도 불필요한 비용을 발생시킵니다. 이 문제를 줄이고자 “디자인 시스템을 준수해야겠다”는 생각을 하게 되었습니다.",
