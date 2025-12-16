@@ -116,7 +116,7 @@ export default function Search() {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="group flex items-center justify-center rounded-lg p-2 transition-colors hover:bg-gray-100 dark:hover:bg-gray-800"
+        className="group flex cursor-pointer items-center justify-center rounded-lg p-2 transition-colors hover:bg-gray-100 dark:hover:bg-gray-800"
         aria-label="검색"
         title="검색 (Ctrl+K 또는 Cmd+K)"
       >
@@ -144,7 +144,7 @@ export default function Search() {
                 />
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="ml-2 rounded p-1 hover:bg-gray-100 dark:hover:bg-gray-800"
+                  className="ml-2 cursor-pointer rounded p-1 hover:bg-gray-100 dark:hover:bg-gray-800"
                 >
                   <RiCloseLine className="h-4 w-4 text-gray-400" />
                 </button>
