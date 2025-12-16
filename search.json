@@ -22,5 +22,11 @@
     "slug": "typography-component-vs-class",
     "excerpt": "프로젝트를 하다 보면 텍스트 스타일을 어떻게 관리할지가 늘 고민거리입니다. Tailwind를 쓰면 text-lg, text-xl 같은 유틸리티 클래스 덕분에 빠르게 작업할 수 있지만, 서비스가 커지면 일관성을 유지하기 어려워집니다.",
     "category": "develop"
+  },
+  {
+    "title": "Next.js 정적 블로그에 검색 기능 구현하기",
+    "slug": "blog-search-implementation",
+    "excerpt": "GitHub Pages로 호스팅되는 Next.js 정적 블로그에 클라이언트 사이드 검색 기능을 구현한 과정을 소개합니다.",
+    "category": "develop"
   }
 ]
