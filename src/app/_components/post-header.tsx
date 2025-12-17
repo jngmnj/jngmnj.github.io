@@ -1,4 +1,5 @@
 import { PostTitle } from '@/app/_components/post-title';
+import { CATEGORY_PATH } from '@/lib/constants';
 import { RiArrowRightSLine } from '@remixicon/react';
 import Link from 'next/link';
 import Avatar from './avatar';
@@ -17,7 +18,7 @@ export function PostHeader({ title, coverImage, date, category }: Props) {
     <>
       <div className="mb-4 flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400">
         <Link
-          href="/blog"
+          href={CATEGORY_PATH}
           className="p-1 hover:text-gray-900 hover:underline dark:hover:text-gray-200"
         >
           Blog

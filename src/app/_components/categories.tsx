@@ -1,4 +1,5 @@
 import { getAllCategories } from '@/lib/api';
+import { CATEGORY_PATH } from '@/lib/constants';
 import Link from 'next/link';
 
 export default function Categories({
@@ -12,7 +13,7 @@ export default function Categories({
     <ul className="mb-8 flex flex-wrap gap-3">
       <li key="all">
         <Link
-          href="/blog/category"
+          href={CATEGORY_PATH}
           className={`rounded px-4 py-2 ${
             category
               ? 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800'

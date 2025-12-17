@@ -1,4 +1,5 @@
 import Switcher from '@/app/_components/switcher';
+import { ABOUT_PATH, CATEGORY_PATH, HOME_PATH } from '@/lib/constants';
 import { RiExternalLinkLine } from '@remixicon/react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -11,11 +12,11 @@ const Header = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-8">
             <div className="dark:brightness-0 dark:invert">
-              <h1 className="sr-only">jngmnj's blog</h1>
-              <Link href="/" className="block py-1 pr-2">
+              <h1 className="sr-only">jngmnj&apos;s blog</h1>
+              <Link href={HOME_PATH} className="block py-1 pr-2">
                 <Image
                   src="/assets/common/logo_black.svg"
-                  alt="Logo"
+                  alt="jngmnj's blog Logo"
                   width={100}
                   height={27}
                 />
@@ -25,7 +26,7 @@ const Header = () => {
               <ul className="flex items-center space-x-3 md:space-x-5">
                 <li>
                   <Link
-                    href="https://jngmnj-portfolio.vercel.app/about"
+                    href={ABOUT_PATH}
                     target="_blank"
                     className="font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200"
                   >
@@ -35,7 +36,7 @@ const Header = () => {
                 </li>
                 <li>
                   <Link
-                    href="/blog/category"
+                    href={CATEGORY_PATH}
                     className="font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200"
                   >
                     Blog
