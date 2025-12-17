@@ -3,10 +3,6 @@ title: 'Next.js 렌더링 방식: SSG, SSR, ISR, Streaming'
 excerpt: 'Page Router부터 App Router까지, Next.js의 렌더링 방식(SSG, SSR, ISR, Streaming)을 흐름으로 정리하고 언제 어떤 방식을 쓰면 좋을지 정리해봅니다.'
 date: '2025-12-15'
 category: 'develop'
-coverImage: '/assets/blog/nextjs-rendering/cover.jpg'
-author:
-  name: 'jngmnj'
-  picture: '/assets/blog/authors/jj.jpeg'
 ---
 
 Next.js의 렌더링 방식은 **SSG → SSR → ISR → Streaming**으로 진화해 왔습니다.  

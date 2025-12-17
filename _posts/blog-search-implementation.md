@@ -1,12 +1,8 @@
 ---
 title: 'Next.js 정적 블로그에 검색 기능 구현하기'
 excerpt: 'GitHub Pages로 호스팅되는 Next.js 정적 블로그에 클라이언트 사이드 검색 기능을 구현한 과정을 소개합니다.'
-date: '2024-12-19'
+date: '2025-10-04'
 category: 'develop'
-coverImage: '/assets/blog/search-implementation/cover.jpg'
-author:
-  name: 'jngmnj'
-  picture: '/assets/blog/authors/jj.jpeg'
 ---
 
 GitHub Pages로 배포된 Next.js 블로그는 **정적 웹사이트(Static Website)**의 특성을 가집니다. 이는 빌드 시점에 모든 HTML, CSS, JavaScript 파일이 생성되며, 서버 측 로직(예: Next.js API Routes, 데이터베이스 연동)은 직접 실행할 수 없다는 것을 의미합니다. 이러한 제약 조건 때문에 전통적인 서버 사이드 검색은 불가능하며, 모든 동적인 처리는 클라이언트 사이드 JavaScript에 위임해야 합니다.
