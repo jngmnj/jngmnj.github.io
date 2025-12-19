@@ -14,7 +14,7 @@ export default function Index() {
       <Container narrow>
         <HeroPost
           title={heroPost.title}
-          coverImage={heroPost.coverImage}
+          coverImage={heroPost.coverImage || ''}
           slug={heroPost.slug}
           excerpt={heroPost.excerpt}
         />
