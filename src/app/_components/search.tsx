@@ -8,6 +8,7 @@ type SearchResult = {
   slug: string;
   excerpt: string;
   category: string;
+  type?: string;
 };
 
 export default function Search() {
@@ -176,28 +177,40 @@ export default function Search() {
                   </div>
                 ) : (
                   <div className="p-2">
-                    {results.map((result) => (
-                      <Link
-                        key={result.slug}
-                        href={`/blog/${result.slug}`}
-                        onClick={handleResultClick}
-                        className="block rounded-lg p-3 transition-colors hover:bg-gray-50 dark:hover:bg-gray-800"
-                      >
-                        <div className="flex flex-col space-y-1">
-                          <h3 className="line-clamp-1 font-medium text-gray-900 dark:text-gray-100">
-                            {result.title}
-                          </h3>
-                          <p className="line-clamp-2 text-sm text-gray-600 dark:text-gray-400">
-                            {result.excerpt}
-                          </p>
-                          <div className="flex items-center space-x-2">
-                            <span className="inline-flex items-center rounded-full bg-blue-100 px-2 py-1 text-xs font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-200">
-                              {result.category}
-                            </span>
+                    {results.map((result) => {
+                      const href =
+                        result.type === 'short'
+                          ? `/${result.slug}`
+                          : `/blog/${result.slug}`;
+
+                      return (
+                        <Link
+                          key={result.slug}
+                          href={href}
+                          onClick={handleResultClick}
+                          className="block rounded-lg p-3 transition-colors hover:bg-gray-50 dark:hover:bg-gray-800"
+                        >
+                          <div className="flex flex-col space-y-1">
+                            <h3 className="line-clamp-1 font-medium text-gray-900 dark:text-gray-100">
+                              {result.title}
+                            </h3>
+                            <p className="line-clamp-2 text-sm text-gray-600 dark:text-gray-400">
+                              {result.excerpt}
+                            </p>
+                            <div className="flex items-center space-x-2">
+                              <span className="inline-flex items-center rounded-full bg-blue-100 px-2 py-1 text-xs font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-200">
+                                {result.category}
+                              </span>
+                              {result.type === 'short' && (
+                                <span className="inline-flex items-center rounded-full bg-green-100 px-2 py-1 text-xs font-medium text-green-800 dark:bg-green-900 dark:text-green-200">
+                                  짧은글
+                                </span>
+                              )}
+                            </div>
                           </div>
-                        </div>
-                      </Link>
-                    ))}
+                        </Link>
+                      );
+                    })}
                   </div>
                 )}
               </div>
