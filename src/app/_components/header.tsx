@@ -1,5 +1,10 @@
 import Switcher from '@/app/_components/switcher';
-import { ABOUT_PATH, CATEGORY_PATH, HOME_PATH } from '@/lib/constants';
+import {
+  ABOUT_PATH,
+  CATEGORY_PATH,
+  HOME_PATH,
+  TECH_BYTES_PATH,
+} from '@/lib/constants';
 import { RiExternalLinkLine } from '@remixicon/react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -30,7 +35,7 @@ const Header = () => {
                     target="_blank"
                     className="font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200"
                   >
-                    About
+                    about
                     <RiExternalLinkLine className="mb-1 ml-1 inline h-4 w-4" />
                   </Link>
                 </li>
@@ -39,7 +44,15 @@ const Header = () => {
                     href={CATEGORY_PATH}
                     className="font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200"
                   >
-                    Blog
+                    blog
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href={TECH_BYTES_PATH}
+                    className="font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200"
+                  >
+                    tech-bytes
                   </Link>
                 </li>
               </ul>
