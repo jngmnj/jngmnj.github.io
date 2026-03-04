@@ -159,3 +159,8 @@ code[data-line-numbers-max-digits='4'] > [data-line]::before {
 .markdown li p {
   margin: 0;
 }
+
+/* tech-bytes */
+.tech-bytes.prose > div > *:first-child {
+  margin-top: 0;
+}
