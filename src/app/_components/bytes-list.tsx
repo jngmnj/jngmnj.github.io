@@ -11,6 +11,7 @@ export function BytesList({ bytes }: Props) {
       {bytes.map((byte) => (
         <BytesItem
           key={byte.slug}
+          slug={byte.slug}
           content={byte.content}
           date={byte.date}
           tags={byte.tags}
