@@ -1,23 +1,9 @@
 import Container from '@/app/_components/container';
-import { getAllShorts } from '@/lib/api';
 import { DEFAULT_TITLE, HOME_OG_IMAGE_URL, SITE_URL } from '@/lib/constants';
-import markdownToHtml from '@/lib/markdownToHtml';
 import { Metadata } from 'next';
-import { BytesList } from '../_components/bytes-list';
+import { BytesList } from '@/app/_components/bytes-list';
 
-export default async function ShortsPage() {
-  const allShorts = getAllShorts();
-
-  const processedShorts = await Promise.all(
-    allShorts.map(async (short) => {
-      const { html } = await markdownToHtml(short.content || '');
-      return {
-        ...short,
-        content: html,
-      };
-    })
-  );
-
+export default function ShortsPage() {
   return (
     <main>
       <Container narrow>
@@ -32,13 +18,7 @@ export default async function ShortsPage() {
         </div>
 
         <section>
-          {processedShorts.length > 0 ? (
-            <BytesList bytes={processedShorts} />
-          ) : (
-            <div className="py-8 text-center text-gray-500">
-              아직 작성된 짧은 글이 없습니다.
-            </div>
-          )}
+          <BytesList />
         </section>
       </Container>
     </main>
