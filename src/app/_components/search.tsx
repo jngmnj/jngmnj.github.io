@@ -44,7 +44,7 @@ export default function Search() {
     const q = query.toLowerCase().trim();
     const filteredResults = index.filter(
       (item) =>
-        item.title.toLowerCase().includes(q) ||
+        (item.title && item.title.toLowerCase().includes(q)) ||
         item.excerpt.toLowerCase().includes(q) ||
         item.category.toLowerCase().includes(q)
     );
@@ -191,9 +191,11 @@ export default function Search() {
                           className="block rounded-lg p-3 transition-colors hover:bg-gray-50 dark:hover:bg-gray-800"
                         >
                           <div className="flex flex-col space-y-1">
-                            <h3 className="line-clamp-1 font-medium text-gray-900 dark:text-gray-100">
-                              {result.title}
-                            </h3>
+                            {result.type !== 'short' && (
+                              <h3 className="line-clamp-1 font-medium text-gray-900 dark:text-gray-100">
+                                {result.title}
+                              </h3>
+                            )}
                             <p className="line-clamp-2 text-sm text-gray-600 dark:text-gray-400">
                               {result.excerpt}
                             </p>

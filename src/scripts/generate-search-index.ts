@@ -15,8 +15,10 @@ function generateSearchIndex() {
   }));
 
   const shortsIndex = shorts.map((short) => ({
-    slug: `tech-bytes/${short.slug}`, // shorts 경로 추가
-    excerpt: short.content.slice(0, 200), // content에서 앞 200자만 추출하여 excerpt로 사용
+    title: '',
+    slug: `tech-bytes/${short.slug}`,
+    excerpt: short.content.slice(0, 200),
+    category: short.tags?.[0] || 'tech-bytes',
     type: 'short',
   }));
 
