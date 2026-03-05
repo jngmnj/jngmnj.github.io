@@ -1,38 +1,58 @@
 [
   {
+    "title": "Next.js 이미지 최적화 완벽 가이드",
+    "slug": "nextjs-image-optimization-guide",
+    "excerpt": "Next.js Image 컴포넌트를 활용한 웹 성능 최적화 방법을 자세히 알아보세요. priority 로딩, blur placeholder, 반응형 이미지까지 실제 프로젝트에서 바로 적용할 수 있는 실전 팁들을 소개합니다.",
+    "category": "develop",
+    "type": "post"
+  },
+  {
     "title": "Next.js 렌더링 방식: SSG, SSR, ISR, Streaming",
     "slug": "nextjs-rendering-methods",
     "excerpt": "Page Router부터 App Router까지, Next.js의 렌더링 방식(SSG, SSR, ISR, Streaming)을 흐름으로 정리하고 언제 어떤 방식을 쓰면 좋을지 정리해봅니다.",
-    "category": "develop"
+    "category": "develop",
+    "type": "post"
   },
   {
     "title": "CSS 방법론 완전 정리: BEM, OOCSS, SMACSS",
     "slug": "css-methodology-complete-guide",
     "excerpt": "대규모 프로젝트에서 CSS를 체계적으로 관리하기 위한 세 가지 주요 방법론을 비교하고 실전 활용법을 알아보겠습니다.",
-    "category": "develop"
+    "category": "develop",
+    "type": "post"
   },
   {
     "title": "자바스크립트 함수형 프로그래밍: go, pipe, curry로 코드를 더 깔끔하게",
     "slug": "functional-programming-ex",
     "excerpt": "함수형 프로그래밍의 핵심 개념인 go, pipe, curry를 직접 구현하고 실전에서 어떻게 활용하는지 알아보겠습니다.",
-    "category": "develop"
+    "category": "develop",
+    "type": "post"
   },
   {
     "title": "Next.js 정적 블로그에 검색 기능 구현하기",
     "slug": "blog-search-implementation",
     "excerpt": "GitHub Pages로 호스팅되는 Next.js 정적 블로그에 클라이언트 사이드 검색 기능을 구현한 과정을 소개합니다.",
-    "category": "develop"
+    "category": "develop",
+    "type": "post"
   },
   {
     "title": "디자인 시스템 준수를 시도하며 배운 점",
     "slug": "boardque-design-system",
     "excerpt": "프로젝트를 진행하면서 팀원마다 버튼 스타일, 폰트 크기, 라운드 값이 조금씩 달라지는 걸 보았습니다. 화면마다 미묘하게 다른 UI는 사용자 경험에도 영향을 주고, 코드 관리에도 불필요한 비용을 발생시킵니다. 이 문제를 줄이고자 “디자인 시스템을 준수해야겠다”는 생각을 하게 되었습니다.",
-    "category": "develop"
+    "category": "develop",
+    "type": "post"
   },
   {
     "title": "타이포그래피 관리: 컴포넌트 vs 클래스 네이밍",
     "slug": "typography-component-vs-class",
     "excerpt": "프로젝트를 하다 보면 텍스트 스타일을 어떻게 관리할지가 늘 고민거리입니다. Tailwind를 쓰면 text-lg, text-xl 같은 유틸리티 클래스 덕분에 빠르게 작업할 수 있지만, 서비스가 커지면 일관성을 유지하기 어려워집니다.",
-    "category": "develop"
+    "category": "develop",
+    "type": "post"
+  },
+  {
+    "title": "",
+    "slug": "tech-bytes/about-tech-byte",
+    "excerpt": "\n## GitHub Pages에서 무한스크롤 구현\n\n서버 없는 정적 사이트인데 무한스크롤을 가능하게 하다...\n\n일단 **TanStack Query** 쓰고 빌드할 때 JSON 파일들을 쪼개서 만듦\n\nTanStack Query 쓴 이유\n\n- `useInfiniteQuery`가 무한스크롤에 최적화됨\n- 이미 로드한 페이지는 자동 캐싱 (중복 요청 방지)\n- ",
+    "category": "무한스크롤",
+    "type": "short"
   }
 ]
