@@ -1,10 +1,10 @@
 'use client';
 
-import { Post } from '@/interfaces/post';
+import { Bytes } from '@/interfaces/bytes';
 import { useInfiniteQuery } from '@tanstack/react-query';
 
 type BytesPage = {
-  data: Post[];
+  data: Bytes[];
   currentPage: number;
   totalPages: number;
   nextPage: number | null;
