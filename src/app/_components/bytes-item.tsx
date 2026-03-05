@@ -34,11 +34,14 @@ export function BytesItem({ slug, content, date, tags }: BytesItemProps) {
             className="text-sm text-gray-500 dark:text-gray-400"
           />
         </div>
-        <Link href={`/tech-bytes/${slug}`} className="block">
+        {/* <Link href={`/tech-bytes/${slug}`} className="block">
           <div className="tech-bytes markdown prose mb-4 max-w-none cursor-pointer rounded-xl border border-b-2 border-gray-200 p-6 transition-all hover:border-gray-300 hover:shadow-sm dark:border-gray-700 dark:hover:border-gray-600">
             <div dangerouslySetInnerHTML={{ __html: content }} />
           </div>
-        </Link>
+        </Link> */}
+        <div className="tech-bytes markdown prose mb-4 max-w-none cursor-pointer rounded-xl border border-b-2 border-gray-200 p-6 transition-all hover:border-gray-300 hover:shadow-sm dark:border-gray-700 dark:hover:border-gray-600">
+          <div dangerouslySetInnerHTML={{ __html: content }} />
+        </div>
         <div className="mb-4 flex items-center justify-between">
           {tags && (
             <div className="flex flex-wrap gap-2">

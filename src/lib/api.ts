@@ -73,9 +73,3 @@ export function getAllCategories() {
   const categories = posts.map((post) => post.category);
   return Array.from(new Set(categories));
 }
-
-export const fetchPostChunk = async ({ pageParam = 1 }) => {
-  const res = await fetch(`/data/bytes/posts-${pageParam}.json`);
-  if (!res.ok) throw new Error('Network response was not ok');
-  return res.json();
-};
