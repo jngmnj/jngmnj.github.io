@@ -9,6 +9,7 @@ import type { Metadata } from 'next';
 
 import Header from './_components/header';
 import './globals.css';
+import { Providers } from './providers';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -64,9 +65,11 @@ export default function RootLayout({
         <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       </head>
       <body className="dark:bg-black dark:text-white">
-        <Header />
-        <div className="min-h-screen">{children}</div>
-        <Footer />
+        <Providers>
+          <Header />
+          <div className="min-h-screen">{children}</div>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
